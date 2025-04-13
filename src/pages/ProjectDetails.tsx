@@ -13,9 +13,9 @@ const projectsData = {
     category: 'Beauty & Wellness',
     description: 'A single-page landing site with smooth scroll sections featuring services, testimonials, and contact information.',
     fullDescription: 'GlowUp Beauty Bar needed an elegant yet modern website to showcase their premium beauty services. We created a smooth-scrolling single page experience that guides potential customers through their offerings, showcases glowing testimonials, and provides easy contact options. The design features soft pastel tones with bold typography to reflect their upscale yet approachable brand.',
-    image: 'https://images.unsplash.com/photo-1571646034647-67cc5b036edc?auto=format&fit=crop&w=800&q=80',
+    image: '/background.png',
     gallery: [
-      'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=800&q=80',
+      '/background2.png',
       'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80',
     ],

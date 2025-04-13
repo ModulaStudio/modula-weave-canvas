@@ -65,7 +65,7 @@ const Index: React.FC = () => {
                 <div className="absolute -bottom-8 -right-8 w-72 h-72 bg-modula-beige rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80" 
+                    src="/new logo.png" 
                     alt="Modern laptop with code" 
                     className="rounded-2xl shadow-2xl"
                   />
@@ -132,7 +132,7 @@ const Index: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 items-center animate-on-scroll">
             <div className="md:col-span-6">
               <img 
-                src="https://images.unsplash.com/photo-1571646034647-67cc5b036edc?auto=format&fit=crop&w=800&q=80" 
+                src="/background.png" 
                 alt="GlowUp Beauty Bar Website" 
                 className="rounded-lg shadow-md"
               />

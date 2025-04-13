@@ -11,7 +11,7 @@ const portfolioProjects = [
     title: 'GlowUp Beauty Bar',
     category: 'Beauty & Wellness',
     description: 'A single-page landing site with smooth scroll sections featuring services, testimonials, and contact information.',
-    image: 'https://images.unsplash.com/photo-1571646034647-67cc5b036edc?auto=format&fit=crop&w=800&q=80',
+    image: '/background.png',
     href: '/portfolio'
   },
   {
