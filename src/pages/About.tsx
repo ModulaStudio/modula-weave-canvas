@@ -34,7 +34,7 @@ const About: React.FC = () => {
               </div>
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1518777672941-05a6f8a418ab?auto=format&fit=crop&w=800&q=80" 
+                  src="/brainstorming.jpg" 
                   alt="Team brainstorming session" 
                   className="rounded-lg shadow-lg"
                 />
@@ -90,7 +90,7 @@ const About: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span className="font-medium">HTML5</span>
+                      <span className="font-medium">React</span>
                       <span>98%</span>
                     </div>
                     <div className="w-full bg-gray-200 h-2 rounded-full">
@@ -99,7 +99,7 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span className="font-medium">CSS3</span>
+                      <span className="font-medium">TypeScript</span>
                       <span>95%</span>
                     </div>
                     <div className="w-full bg-gray-200 h-2 rounded-full">

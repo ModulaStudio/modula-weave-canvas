@@ -36,16 +36,16 @@ const Footer: React.FC = () => {
               Creating beautiful, responsive websites that elevate your brand and engage your audience.
             </p>
             <div className="flex space-x-3 mb-6">
-              <a href="https://instagram.com" aria-label="Instagram" className="text-white hover:text-modula-coral transition-all duration-300">
+              <a href="https://instagram.com/modulastudio.ke" aria-label="Instagram" className="text-white hover:text-modula-coral transition-all duration-300">
                 <Instagram size={16} />
               </a>
-              <a href="https://twitter.com" aria-label="Twitter" className="text-white hover:text-modula-coral transition-all duration-300">
+              <a href="https://x.com/ModulaStudio" aria-label="Twitter" className="text-white hover:text-modula-coral transition-all duration-300">
                 <Twitter size={16} />
               </a>
-              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-white hover:text-modula-coral transition-all duration-300">
+              {/* <a href="https://linkedin.com" aria-label="LinkedIn" className="text-white hover:text-modula-coral transition-all duration-300">
                 <Linkedin size={16} />
-              </a>
-              <a href="mailto:hello@modulastudio.com" aria-label="Email" className="text-white hover:text-modula-coral transition-all duration-300">
+              </a> */}
+              <a href="mailto:hellomodulastudio@gmail.com" aria-label="Email" className="text-white hover:text-modula-coral transition-all duration-300">
                 <Mail size={16} />
               </a>
             </div>
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               <li className="flex items-start space-x-2">
                 <Mail size={14} className="text-modula-coral mt-1 flex-shrink-0" />
-                <span className="text-modula-grey">hello@modulastudio.com</span>
+                <span className="text-modula-grey">hellomodulastudio@gmail.com</span>
               </li>
               <li className="flex items-start space-x-2">
                 <Phone size={14} className="text-modula-coral mt-1 flex-shrink-0" />
@@ -120,8 +120,7 @@ const Footer: React.FC = () => {
               <li className="flex items-start space-x-2">
                 <MapPin size={14} className="text-modula-coral mt-1 flex-shrink-0" />
                 <span className="text-modula-grey">
-                  123 Design Street, Creative District<br />
-                  Web City, 10001
+                  Mombasa, Kenya.
                 </span>
               </li>
             </ul>

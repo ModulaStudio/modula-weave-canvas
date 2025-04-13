@@ -20,7 +20,7 @@ const projectsData = {
       'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80',
     ],
     features: ['Smooth scrolling navigation', 'Service cards with hover effects', 'Testimonial carousel', 'Mobile-responsive design', 'Contact form with validation'],
-    technologies: ['HTML5', 'CSS3/TailwindCSS', 'JavaScript', 'Responsive Design'],
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'Responsive Design'],
     completionDate: 'March 2023',
     clientUrl: 'https://glowupbeauty.example.com'
   },
@@ -36,7 +36,7 @@ const projectsData = {
       'https://images.unsplash.com/photo-1520454974749-611b7248ffdb?auto=format&fit=crop&w=800&q=80',
     ],
     features: ['Multi-page architecture', 'Tour package listings', 'Blog with categories', 'Interactive map integration', 'Booking inquiry form'],
-    technologies: ['HTML5', 'CSS3/TailwindCSS', 'JavaScript', 'Responsive Design'],
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'Responsive Design'],
     completionDate: 'June 2023',
     clientUrl: 'https://mombasaescapes.example.com'
   },
@@ -52,7 +52,7 @@ const projectsData = {
       'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80',
     ],
     features: ['Interactive class booking system', 'Trainer profiles', 'Dynamic class schedule', 'Membership options', 'Client testimonials'],
-    technologies: ['HTML5', 'CSS3/TailwindCSS', 'JavaScript', 'Form validation'],
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'Responsive Design', 'Form validation'],
     completionDate: 'September 2023',
     clientUrl: 'https://coastalfit.example.com'
   },
@@ -68,7 +68,7 @@ const projectsData = {
       'https://images.unsplash.com/photo-1551135049-8a33b5883817?auto=format&fit=crop&w=800&q=80',
     ],
     features: ['Sidebar navigation', 'Statistical dashboard cards', 'Interactive charts', 'Data tables', 'Chatbot UI component'],
-    technologies: ['HTML5', 'CSS3/TailwindCSS', 'JavaScript', 'Chart.js'],
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'Responsive Design', 'Chart.js'],
     completionDate: 'November 2023',
     clientUrl: 'https://modulaadmin.example.com'
   }
@@ -211,7 +211,7 @@ const ProjectDetails: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="border-t pt-4">
+                {/* <div className="border-t pt-4">
                   <a 
                     href={project.clientUrl} 
                     target="_blank" 
@@ -222,7 +222,7 @@ const ProjectDetails: React.FC = () => {
                     <span>View Live Site</span>
                     <ExternalLink size={14} className="ml-1" />
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

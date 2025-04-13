@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
 import { useToast } from '@/hooks/use-toast';
 
 const ContactForm: React.FC = () => {
@@ -11,6 +11,8 @@ const ContactForm: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -21,22 +23,45 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-    setIsSubmitting(false);
+    setIsSuccess(false);
+    setIsError(false);
+
+    try {
+      await emailjs.send(
+        'service_mq5xl72',      // 🔁 Replace with your EmailJS Service ID
+        'template_s680xcu',     // 🔁 Replace with your EmailJS Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'GLGjv2YsftkXbqy1V'       // 🔁 Replace with your EmailJS Public API Key
+      );
+
+      setIsSuccess(true);
+      toast({
+        title: 'Message sent!',
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Email failed to send:', error);
+      setIsError(true);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setIsError(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -73,6 +98,7 @@ const ContactForm: React.FC = () => {
           />
         </div>
       </div>
+
       <div>
         <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900">
           Subject
@@ -88,6 +114,7 @@ const ContactForm: React.FC = () => {
           placeholder="How can we help you?"
         />
       </div>
+
       <div>
         <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900">
           Message
@@ -103,7 +130,8 @@ const ContactForm: React.FC = () => {
           placeholder="Tell us about your project..."
         />
       </div>
-      <div>
+
+      <div className="space-y-4">
         <button
           type="submit"
           disabled={isSubmitting}
@@ -121,6 +149,26 @@ const ContactForm: React.FC = () => {
             </>
           )}
         </button>
+
+        {/* Success Animation */}
+        {isSuccess && (
+          <div className="text-green-500 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Message Sent Successfully!</span>
+          </div>
+        )}
+
+        {/* Error Message */}
+        {isError && (
+          <div className="text-red-500 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              <path d="M12 9v2m0 4h.01M12 5a7 7 0 100 14 7 7 0 000-14z" />
+            </svg>
+            <span>Something went wrong. Please try again.</span>
+          </div>
+        )}
       </div>
     </form>
   );

@@ -32,9 +32,8 @@ const Contact: React.FC = () => {
                     <div>
                       <h4 className="font-medium">Address</h4>
                       <p className="text-gray-600">
-                        123 Design Street<br />
-                        Creative District<br />
-                        Web City, 10001
+                        Mombasa, Kenya<br />
+                        86014 - 80100
                       </p>
                     </div>
                   </li>
@@ -55,7 +54,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-medium">Email</h4>
-                      <p className="text-gray-600">hello@modulastudio.com</p>
+                      <p className="text-gray-600">hellomodulastudio@gmail.com</p>
                     </div>
                   </li>
                   
@@ -76,15 +75,15 @@ const Contact: React.FC = () => {
                 <div className="mt-8">
                   <h4 className="font-medium mb-4">Follow Us</h4>
                   <div className="flex space-x-4">
-                    <a href="https://instagram.com" aria-label="Instagram" className="w-10 h-10 flex items-center justify-center bg-modula-light-grey text-modula-charcoal rounded-full hover:bg-modula-coral hover:text-white transition-all">
+                    <a href="https://instagram.com/modulastudio.ke" aria-label="Instagram" className="w-10 h-10 flex items-center justify-center bg-modula-light-grey text-modula-charcoal rounded-full hover:bg-modula-coral hover:text-white transition-all">
                       <Instagram size={18} />
                     </a>
-                    <a href="https://twitter.com" aria-label="Twitter" className="w-10 h-10 flex items-center justify-center bg-modula-light-grey text-modula-charcoal rounded-full hover:bg-modula-coral hover:text-white transition-all">
+                    <a href="https://x.com/ModulaStudio" aria-label="Twitter" className="w-10 h-10 flex items-center justify-center bg-modula-light-grey text-modula-charcoal rounded-full hover:bg-modula-coral hover:text-white transition-all">
                       <Twitter size={18} />
                     </a>
-                    <a href="https://linkedin.com" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center bg-modula-light-grey text-modula-charcoal rounded-full hover:bg-modula-coral hover:text-white transition-all">
+                    {/* <a href="https://linkedin.com" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center bg-modula-light-grey text-modula-charcoal rounded-full hover:bg-modula-coral hover:text-white transition-all">
                       <Linkedin size={18} />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
