@@ -42,10 +42,10 @@ const Contact: React.FC = () => {
                     <div className="mr-4 mt-1">
                       <Phone className="text-modula-coral" size={20} />
                     </div>
-                    <div>
+                    {/* <div>
                       <h4 className="font-medium">Phone</h4>
                       <p className="text-gray-600">+123 456 7890</p>
-                    </div>
+                    </div> */}
                   </li>
                   
                   <li className="flex items-start">

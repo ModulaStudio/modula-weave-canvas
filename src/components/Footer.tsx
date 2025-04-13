@@ -113,10 +113,10 @@ const Footer: React.FC = () => {
                 <Mail size={14} className="text-modula-coral mt-1 flex-shrink-0" />
                 <span className="text-modula-grey">hellomodulastudio@gmail.com</span>
               </li>
-              <li className="flex items-start space-x-2">
+              {/* <li className="flex items-start space-x-2">
                 <Phone size={14} className="text-modula-coral mt-1 flex-shrink-0" />
                 <span className="text-modula-grey">+123 456 7890</span>
-              </li>
+              </li> */}
               <li className="flex items-start space-x-2">
                 <MapPin size={14} className="text-modula-coral mt-1 flex-shrink-0" />
                 <span className="text-modula-grey">
