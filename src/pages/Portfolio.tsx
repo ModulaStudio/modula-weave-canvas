@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ProjectCard from '@/components/ProjectCard';
+import { Link } from 'lucide-react';
 
 const portfolioProjects = [
   {
@@ -75,7 +76,7 @@ const Portfolio: React.FC = () => {
                   </p>
                 </div>
                 <div className="md:col-span-4 flex justify-end">
-                  <a href="/contact" className="btn-primary">Contact Us</a>
+                  <Link to="/contact" className="btn-primary">Contact Us </Link>
                 </div>
               </div>
             </div>
