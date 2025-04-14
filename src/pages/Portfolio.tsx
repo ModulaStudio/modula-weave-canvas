@@ -1,9 +1,10 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ProjectCard from '@/components/ProjectCard';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const portfolioProjects = [
   {
@@ -41,48 +42,86 @@ const portfolioProjects = [
 ];
 
 const Portfolio: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const categories = ["All", ...new Set(portfolioProjects.map(p => p.category))];
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? portfolioProjects
+      : portfolioProjects.filter(p => p.category === selectedCategory);
+
   return (
     <>
       <Navbar />
-      
       <main className="pt-24 pb-16">
         <div className="container-custom">
-          <PageHeader 
-            title="Our Portfolio" 
+          <PageHeader
+            title="Our Portfolio"
             subtitle="Take a look at our recent projects that showcase our design and development expertise."
           />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {portfolioProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                title={project.title}
-                category={project.category}
-                description={project.description}
-                image={project.image}
-                href={`/portfolio/${project.id}`}
-              />
+
+          {/* FILTER BUTTONS */}
+          <div className="flex flex-wrap gap-3 justify-center mb-8">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full border font-medium transition-all ${
+                  selectedCategory === category
+                    ? 'bg-modula-coral text-white'
+                    : 'bg-white text-gray-800 border-gray-300 hover:bg-modula-coral hover:text-white'
+                }`}
+              >
+                {category}
+              </button>
             ))}
           </div>
-          
+
+          {/* PROJECT GRID WITH FADE-IN */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <AnimatePresence mode="wait">
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ProjectCard
+                    title={project.title}
+                    category={project.category}
+                    description={project.description}
+                    image={project.image}
+                    href={`/portfolio/${project.id}`}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+
+          {/* CTA SECTION */}
           <section className="mt-24">
             <div className="bg-modula-light-grey rounded-lg p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-8">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">Need a custom website for your business?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                    Need a custom website for your business?
+                  </h2>
                   <p className="text-gray-600">
                     We design and develop tailored websites that align with your brand and business goals. Let's discuss your project!
                   </p>
                 </div>
                 <div className="md:col-span-4 flex justify-end">
-                  <a href="/contact" className="btn-primary">Contact Us</a>
+                  <Link to="/contact" className="btn-primary">
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
           </section>
         </div>
       </main>
-      
       <Footer />
     </>
   );
