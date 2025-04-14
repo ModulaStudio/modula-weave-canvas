@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
                     </div>
                   </motion.li>
                   
-                  <motion.li className="flex items-start"
+                  {/* <motion.li className="flex items-start"
                     whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   >
                     <div className="mr-4 mt-1">
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
                       <h4 className="font-medium">Phone</h4>
                       <p className="text-gray-600">+123 456 7890</p>
                     </div>
-                  </motion.li>
+                  </motion.li> */}
                   
                   <motion.li className="flex items-start"
                     whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}

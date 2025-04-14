@@ -1,19 +1,18 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import PricingCard from '@/components/PricingCard';
-import { Check, Plus } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Pricing: React.FC = () => {
-  // Define pricing tiers
+  // Define pricing tiers with your services
   const pricingTiers = [
     {
-      name: "Starter",
+      name: "Web Design",
       price: "KSh 7,500",
-      description: "Perfect for personal brands or small startups that just need a basic online presence.",
+      description: "For personal brands or small startups needing a visually appealing online presence.",
       features: [
         "1-page custom website",
         "Mobile responsive design",
@@ -26,9 +25,9 @@ const Pricing: React.FC = () => {
       emoji: "✨"
     },
     {
-      name: "Standard",
+      name: "Web Development",
       price: "KSh 12,500",
-      description: "Ideal for businesses looking for more structure and features.",
+      description: "For businesses needing a full-fledged website with features like contact forms and social media integration.",
       features: [
         "Up to 4 pages (Home, About, Services, Contact)",
         "Mobile responsive design",
@@ -39,38 +38,36 @@ const Pricing: React.FC = () => {
         "Free domain consultation"
       ],
       highlight: true,
-      emoji: "✨"
+      emoji: "🌐"
     },
     {
-      name: "Pro",
-      price: "KSh 19,500",
-      description: "Best for growing businesses ready to scale and make an impact online.",
+      name: "UI/UX Design",
+      price: "KSh 15,000",
+      description: "For businesses aiming for an excellent user experience and sleek, modern interface design.",
       features: [
-        "5–6 page website with animations",
-        "Blog or gallery integration",
-        "Email contact form + calendar booking (optional)",
-        "Newsletter signup setup",
-        "Google Maps integration",
+        "Custom UI/UX design",
+        "User testing and feedback",
+        "Wireframes and prototypes",
+        "Brand consistency across all pages",
+        "1 revision round"
+      ],
+      highlight: false,
+      emoji: "🎨"
+    },
+    {
+      name: "Website Redesign & Maintenance",
+      price: "KSh 20,000+",
+      description: "For businesses looking to refresh their outdated websites or ongoing website maintenance.",
+      features: [
+        "Modernized design",
+        "Mobile responsive updates",
+        "Ongoing content updates",
+        "Bug fixing and performance monitoring",
         "3 revision rounds",
-        "Domain & hosting setup support"
+        "Annual maintenance package"
       ],
       highlight: false,
-      emoji: "💼"
-    },
-    {
-      name: "AI-Enhanced",
-      price: "KSh 25,000+",
-      description: "For modern businesses that want to stand out with smart features.",
-      features: [
-        "Everything in Pro package",
-        "AI Chatbot for customer support",
-        "AI-generated blog starter pack",
-        "AI-based content suggestions (landing page text, headlines)",
-        "Website analytics setup",
-        "Custom pricing based on level of AI tools used"
-      ],
-      highlight: false,
-      emoji: "🤖"
+      emoji: "🔧"
     }
   ];
 

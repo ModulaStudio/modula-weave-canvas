@@ -1,61 +1,39 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import PageHeader from '@/components/PageHeader';
-import { Code, Layout, Palette, Globe, Database, LineChart, Share2, Search, Rocket } from 'lucide-react';
+import { Layout, Globe, Rocket, Palette, Video } from 'lucide-react'; // Adjusted icons for branding and design services
 
 const Services: React.FC = () => {
   const servicesData = [
     {
       icon: <Layout size={36} />,
-      title: "Web Design",
-      description: "Beautiful, intuitive designs tailored to your brand that engage visitors and drive conversions. We focus on user experience and modern aesthetics.",
-    },
-    {
-      icon: <Code size={36} />,
-      title: "Web Development",
-      description: "Clean, efficient code built on modern frameworks that ensure your website loads quickly and functions flawlessly across all devices and browsers.",
-    },
-    {
-      icon: <Palette size={36} />,
-      title: "UI/UX Design",
-      description: "User-centered design that creates seamless, enjoyable experiences. We craft interfaces that are intuitive, accessible, and visually appealing.",
+      title: "Multi-Page Website Creation",
+      description: "We create custom, multi-page websites tailored to your business needs. Perfect for showcasing your brand and services with a seamless user experience.",
     },
     {
       icon: <Globe size={36} />,
-      title: "Responsive Design",
-      description: "Websites that look and perform beautifully on any device. We ensure optimal viewing and interaction experiences across desktops, tablets, and phones.",
-    },
-    {
-      icon: <Database size={36} />,
-      title: "CMS Integration",
-      description: "Custom content management systems that make it easy for you to update and maintain your website without technical knowledge.",
-    },
-    {
-      icon: <LineChart size={36} />,
-      title: "Analytics Setup",
-      description: "Implementation of tracking tools to monitor website performance, user behavior, and conversion rates to help optimize your digital strategy.",
-    },
-    {
-      icon: <Search size={36} />,
-      title: "SEO Optimization",
-      description: "Strategic optimization to improve your website's visibility in search engine results and drive more organic traffic to your business.",
-    },
-    {
-      icon: <Share2 size={36} />,
-      title: "Social Media Integration",
-      description: "Seamless integration of social media platforms to enhance your online presence and enable easy sharing of your content.",
+      title: "Landing Page Design",
+      description: "Quick and effective landing pages designed to capture attention and convert visitors for promotions, products, or services.",
     },
     {
       icon: <Rocket size={36} />,
-      title: "Performance Optimization",
-      description: "Fine-tuning of your website's speed and performance to ensure fast loading times and smooth operation for all users.",
+      title: "Website Redesign & Maintenance",
+      description: "We refresh outdated websites with modern designs and provide ongoing maintenance to ensure they remain functional and up-to-date.",
+    },
+    {
+      icon: <Palette size={36} />,
+      title: "Logo & Branding Design",
+      description: "We craft unique, professional logos and brand identity designs to ensure your business stands out in a competitive market.",
+    },
+    {
+      icon: <Video size={36} />,
+      title: "Video Production & Marketing",
+      description: "Engage your audience with high-quality promotional videos that highlight your brand story, products, or services.",
     }
   ];
 
-  // Simple scroll animation
   React.useEffect(() => {
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
@@ -63,7 +41,6 @@ const Services: React.FC = () => {
       elements.forEach(element => {
         const position = element.getBoundingClientRect();
         
-        // If element is in viewport
         if(position.top < window.innerHeight * 0.85) {
           if (element.classList.contains('animate-on-scroll')) {
             element.classList.add('animate-fade-in');
@@ -73,7 +50,7 @@ const Services: React.FC = () => {
     };
     
     window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Run once on load
+    animateOnScroll();
     
     return () => {
       window.removeEventListener('scroll', animateOnScroll);
@@ -89,7 +66,7 @@ const Services: React.FC = () => {
         <div className="container-custom">
           <PageHeader
             title="Our Services"
-            subtitle="We offer comprehensive web design and development solutions tailored to your unique business needs."
+            subtitle="We offer a range of web design, development, and branding services tailored to your business needs."
           />
         </div>
       </section>
