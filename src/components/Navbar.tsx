@@ -1,8 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,6 +66,44 @@ const Navbar: React.FC = () => {
             <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>
               About
             </Link>
+            
+            {/* Services Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`nav-link px-0 bg-transparent hover:bg-transparent focus:bg-transparent ${
+                    isActive('/services') ? 'active' : ''
+                  }`}>Services</NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white">
+                    <ul className="grid w-[200px] p-2 gap-1">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/services"
+                            className="block p-2 hover:bg-gray-100 rounded"
+                            onClick={closeMenu}
+                          >
+                            Our Services
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/pricing"
+                            className="block p-2 hover:bg-gray-100 rounded"
+                            onClick={closeMenu}
+                          >
+                            Our Pricing
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            
             <Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>
               Contact
             </Link>
@@ -99,6 +146,24 @@ const Navbar: React.FC = () => {
               >
                 About
               </Link>
+              
+              {/* Mobile Services Dropdown Header */}
+              <div className="text-lg py-2 text-modula-charcoal font-medium">Services</div>
+              <Link 
+                to="/services" 
+                className={`text-lg py-2 pl-4 ${isActive('/services') ? 'text-modula-coral' : 'text-modula-charcoal'}`}
+                onClick={closeMenu}
+              >
+                Our Services
+              </Link>
+              <Link 
+                to="/pricing" 
+                className={`text-lg py-2 pl-4 ${isActive('/pricing') ? 'text-modula-coral' : 'text-modula-charcoal'}`}
+                onClick={closeMenu}
+              >
+                Our Pricing
+              </Link>
+              
               <Link 
                 to="/contact" 
                 className={`text-lg py-2 ${isActive('/contact') ? 'text-modula-coral' : 'text-modula-charcoal'}`}
