@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import PricingCard from '@/components/PricingCard';
-import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Pricing: React.FC = () => {
-  // Define pricing tiers with your services
   const pricingTiers = [
     {
-      name: "Web Design",
-      price: "KSh 7,500",
-      description: "For personal brands or small startups needing a visually appealing online presence.",
+      name: "Starter",
+      price: "",
+      description: "Perfect for personal brands or small startups that just need a basic online presence.",
       features: [
         "1-page custom website",
         "Mobile responsive design",
@@ -25,9 +23,9 @@ const Pricing: React.FC = () => {
       emoji: "✨"
     },
     {
-      name: "Web Development",
-      price: "KSh 12,500",
-      description: "For businesses needing a full-fledged website with features like contact forms and social media integration.",
+      name: "Standard",
+      price: "",
+      description: "Ideal for businesses looking for more structure and features.",
       features: [
         "Up to 4 pages (Home, About, Services, Contact)",
         "Mobile responsive design",
@@ -38,33 +36,34 @@ const Pricing: React.FC = () => {
         "Free domain consultation"
       ],
       highlight: true,
-      emoji: "🌐"
+      emoji: "🌟"
     },
     {
-      name: "UI/UX Design",
-      price: "KSh 15,000",
-      description: "For businesses aiming for an excellent user experience and sleek, modern interface design.",
+      name: "Pro",
+      price: "",
+      description: "Best for growing businesses ready to scale and make an impact online.",
       features: [
-        "Custom UI/UX design",
-        "User testing and feedback",
-        "Wireframes and prototypes",
-        "Brand consistency across all pages",
-        "1 revision round"
+        "5–6 page website with animations",
+        "Blog or gallery integration",
+        "Email contact form + calendar booking (optional)",
+        "Newsletter signup setup",
+        "Google Maps integration",
+        "3 revision rounds",
+        "Domain & hosting setup support"
       ],
       highlight: false,
-      emoji: "🎨"
+      emoji: "🚀"
     },
     {
       name: "Website Redesign & Maintenance",
-      price: "KSh 20,000+",
-      description: "For businesses looking to refresh their outdated websites or ongoing website maintenance.",
+      price: "",
+      description: "For businesses that already have a site but want to refresh their design or get ongoing updates.",
       features: [
-        "Modernized design",
-        "Mobile responsive updates",
-        "Ongoing content updates",
-        "Bug fixing and performance monitoring",
-        "3 revision rounds",
-        "Annual maintenance package"
+        "Visual redesign with modern layout",
+        "Bug fixes & improvements",
+        "Performance and mobile responsiveness checks",
+        "Content updates",
+        "Flexible monthly or one-time packages"
       ],
       highlight: false,
       emoji: "🔧"
@@ -72,28 +71,21 @@ const Pricing: React.FC = () => {
   ];
 
   const addOns = [
-    {
-      name: "Domain & Hosting Setup",
-      price: "KSh 3,000–5,000/year",
-      description: "Based on provider",
-      emoji: "🌐"
-    },
-    {
-      name: "E-commerce Integration",
-      price: "KSh 5,000",
-      emoji: "🛒"
-    },
-    {
-      name: "Logo Design & Brand Kit",
-      price: "KSh 2,500",
-      emoji: "🎨"
-    },
-    {
-      name: "Professional Email Setup",
-      price: "KSh 1,500",
-      emoji: "📩"
-    }
+    { name: "Logo & Brand Kit", emoji: "🎨" },
+    { name: "Business Cards", emoji: "💼" },
+    { name: "Posters & Invitations", emoji: "🖼️" },
+    { name: "Promo Videos", emoji: "🎥" }
   ];
+
+  const [selectedAddOns, setSelectedAddOns] = useState<number[]>([]);
+
+  const toggleAddOn = (index: number) => {
+    setSelectedAddOns(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
 
   return (
     <>
@@ -120,25 +112,47 @@ const Pricing: React.FC = () => {
             ))}
           </div>
 
+          {/* Quote Note */}
+          <div className="text-center mt-8">
+            <p className="text-gray-600 text-sm italic">
+              All pricing is based on project scope and requirements. Get in touch for a custom quote.
+            </p>
+          </div>
+
           {/* Add-ons Section */}
           <section className="mt-20">
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Optional Add-Ons</h2>
-              <p className="text-gray-600">Enhance your website with these additional services</p>
+              <p className="text-gray-600">Enhance your brand identity and content with these creative extras</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {addOns.map((addon, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-100">
-                  <div className="text-2xl mb-3">{addon.emoji}</div>
-                  <h3 className="text-lg font-bold mb-2">{addon.name}</h3>
-                  <p className="text-modula-coral font-bold mb-2">{addon.price}</p>
-                  {addon.description && (
-                    <p className="text-sm text-gray-500">{addon.description}</p>
-                  )}
-                </div>
-              ))}
+              {addOns.map((addon, index) => {
+                const selected = selectedAddOns.includes(index);
+                return (
+                  <div
+                    key={index}
+                    onClick={() => toggleAddOn(index)}
+                    className={`cursor-pointer bg-white p-6 rounded-lg shadow-md border-2 transition-all duration-300 ${
+                      selected
+                        ? "border-modula-coral bg-modula-coral/5"
+                        : "border-gray-100 hover:shadow-lg"
+                    }`}
+                  >
+                    <div className="text-2xl mb-3">{addon.emoji}</div>
+                    <h3 className="text-lg font-bold mb-2">{addon.name}</h3>
+                  </div>
+                );
+              })}
             </div>
+
+            {selectedAddOns.length > 0 && (
+              <div className="text-center mt-10">
+                <p className="text-lg font-semibold text-modula-coral">
+                  Add-ons selected. We'll include these in your consultation.
+                </p>
+              </div>
+            )}
           </section>
 
           {/* CTA Section */}
@@ -150,7 +164,7 @@ const Pricing: React.FC = () => {
                     Ready to get started?
                   </h2>
                   <p className="text-gray-600">
-                    Contact us for a free consultation and we'll help you choose the right plan for your needs.
+                    Contact us for a free consultation and we’ll help you choose the right plan and extras.
                   </p>
                 </div>
                 <div className="md:col-span-4 flex justify-end">
